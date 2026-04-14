@@ -1,0 +1,6 @@
+project_id     = "your-prod-project-id"
+environment    = "prod"
+region         = "us-central1"
+location       = "US"
+backend_image  = "us-central1-docker.pkg.dev/your-prod-project-id/smartvenue/backend:stable"
+frontend_image = "us-central1-docker.pkg.dev/your-prod-project-id/smartvenue/frontend:stable"

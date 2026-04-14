@@ -1,0 +1,24 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: smartvenue-dev
+description: Dev target for SmartVenue Cloud Run release
+run:
+  location: projects/DEV_PROJECT_ID/locations/us-central1
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: smartvenue-stage
+description: Stage target for SmartVenue Cloud Run release
+run:
+  location: projects/STAGE_PROJECT_ID/locations/us-central1
+---
+apiVersion: deploy.cloud.google.com/v1
+kind: Target
+metadata:
+  name: smartvenue-prod
+description: Prod target for SmartVenue Cloud Run release
+requireApproval: true
+run:
+  location: projects/PROD_PROJECT_ID/locations/us-central1
