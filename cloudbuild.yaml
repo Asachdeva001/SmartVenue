@@ -1,0 +1,29 @@
+steps:
+  - name: "gcr.io/cloud-builders/npm"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - "npm ci"
+
+  - name: "gcr.io/cloud-builders/npm"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - "npm run build"
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        gcloud run deploy smartvenue-backend \
+          --source apps/backend \
+          --region ${_REGION} \
+          --allow-unauthenticated
+        gcloud run deploy smartvenue-frontend \
+          --source apps/frontend \
+          --region ${_REGION} \
+          --allow-unauthenticated
+
+substitutions:
+  _REGION: us-central1
