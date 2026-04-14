@@ -1,0 +1,14 @@
+apiVersion: skaffold/v4beta7
+kind: Config
+metadata:
+  name: smartvenue
+
+manifests:
+  rawYaml:
+    - manifests/backend-service.yaml
+    - manifests/frontend-service.yaml
+
+profiles:
+  - name: dev
+  - name: stage
+  - name: prod

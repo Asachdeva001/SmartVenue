@@ -1,0 +1,13 @@
+apiVersion: deploy.cloud.google.com/v1
+kind: DeliveryPipeline
+metadata:
+  name: smartvenue-pipeline
+description: SmartVenue progressive promotion across environments
+serialPipeline:
+  stages:
+    - targetId: smartvenue-dev
+      profiles: ["dev"]
+    - targetId: smartvenue-stage
+      profiles: ["stage"]
+    - targetId: smartvenue-prod
+      profiles: ["prod"]
